@@ -15,5 +15,15 @@
   "bugs": {
     "url": "https://github.com/flexbox/cerebro/issues"
   },
-  "homepage": "https://github.com/flexbox/cerebro#readme"
+  "homepage": "https://github.com/flexbox/cerebro#readme",
+  "devDependencies": {
+    "husky": "^1.1.2",
+    "prettier": "1.14.3",
+    "pretty-quick": "^1.8.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
 }
