@@ -1,0 +1,19 @@
+{
+  "name": "cerebro",
+  "version": "1.0.0",
+  "description": "Blazing fast search for movies that you love",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flexbox/cerebro.git"
+  },
+  "author": "David Leuliette",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/flexbox/cerebro/issues"
+  },
+  "homepage": "https://github.com/flexbox/cerebro#readme"
+}
