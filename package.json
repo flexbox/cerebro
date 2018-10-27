@@ -25,5 +25,8 @@
     "hooks": {
       "pre-commit": "pretty-quick --staged"
     }
+  },
+  "dependencies": {
+    "alfy": "^0.7.0"
   }
 }
