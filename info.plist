@@ -3,7 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string></string>
+	<string>com.davidl.fr</string>
+	<key>category</key>
+	<string>Tools</string>
 	<key>connections</key>
 	<dict/>
 	<key>createdby</key>
@@ -79,6 +81,6 @@ echo -n $query</string>
 		</dict>
 	</dict>
 	<key>webaddress</key>
-	<string></string>
+	<string>cerebro.davidl.fr</string>
 </dict>
 </plist>
