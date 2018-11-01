@@ -1,11 +1,31 @@
-const alfy = require('alfy')
+'use strict';
+require('dotenv').config({ path: __dirname + '/.env' });
+const alfy = require('alfy');
 
-alfy.fetch('jsonplaceholder.typicode.com/posts').then(data => {
-  const items = alfy.inputMatches(data, 'title').map(x => ({
-    title: x.title,
-    subtitle: x.body,
-    arg: x.id,
-  }))
+const API_KEY = process.env.THEMOVIEDB_API_KEY;
 
-  alfy.output(items)
-})
+if (!API_KEY) {
+  alfy.error('Add `THEMOVIEDB_API_KEY` on the workflow settings');
+  return;
+}
+
+alfy
+  .fetch('api.themoviedb.org/3/search/movie', {
+    query: {
+      api_key: API_KEY,
+      query: alfy.input,
+    },
+  })
+  .then(data => {
+    const items = data.results.map(x => {
+      return {
+        title: x.title,
+        subtitle: '⭐ ' + x.vote_average + ' 🗓 ' + x.release_date.substr(0, 4),
+        arg: 'https://themoviedb.org/movie/' + x.id,
+        autocomplete: x.title,
+        quicklookurl: 'https://themoviedb.org/movie/' + x.id,
+        icon: 'https://image.tmdb.org/t/p/w200/' + x.poster_path,
+      };
+    });
+    alfy.output(items);
+  });
