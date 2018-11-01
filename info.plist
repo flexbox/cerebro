@@ -7,7 +7,21 @@
 	<key>category</key>
 	<string>Tools</string>
 	<key>connections</key>
-	<dict/>
+	<dict>
+		<key>248F3346-71D7-4DE0-A97E-14BDBA37C11F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A9D4D47F-F74E-4DC4-AF68-B7C65ACD7CBE</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
 	<key>createdby</key>
 	<string>David Leuliette</string>
 	<key>description</key>
@@ -42,11 +56,9 @@
 				<key>queuemode</key>
 				<integer>1</integer>
 				<key>runningsubtext</key>
-				<string>Loading the universe</string>
+				<string>Loading the universe…</string>
 				<key>script</key>
-				<string>./node_modules/.bin/run-node index.js "$1"query=$1
-
-echo -n $query</string>
+				<string>./node_modules/.bin/run-node index.js "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -54,7 +66,7 @@ echo -n $query</string>
 				<key>subtext</key>
 				<string></string>
 				<key>title</key>
-				<string>Search a movie</string>
+				<string>Search for movie</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -67,19 +79,47 @@ echo -n $query</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>{query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>A9D4D47F-F74E-4DC4-AF68-B7C65ACD7CBE</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
-	<string></string>
+	<string>Blazing fast search for movies that you love</string>
 	<key>uidata</key>
 	<dict>
 		<key>248F3346-71D7-4DE0-A97E-14BDBA37C11F</key>
 		<dict>
 			<key>xpos</key>
-			<integer>100</integer>
+			<integer>10</integer>
 			<key>ypos</key>
-			<integer>150</integer>
+			<integer>10</integer>
+		</dict>
+		<key>A9D4D47F-F74E-4DC4-AF68-B7C65ACD7CBE</key>
+		<dict>
+			<key>xpos</key>
+			<integer>160</integer>
+			<key>ypos</key>
+			<integer>10</integer>
 		</dict>
 	</dict>
+	<key>version</key>
+	<string>1.0.0</string>
 	<key>webaddress</key>
 	<string>cerebro.davidl.fr</string>
 </dict>
