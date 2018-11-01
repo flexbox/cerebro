@@ -1,5 +1,10 @@
+'use strict';
+require('dotenv').config({ path: __dirname + '/.env' });
+
 import test from 'ava';
 import alfyTest from 'alfy-test';
+
+const API_KEY = process.env.THEMOVIEDB_API_KEY;
 
 test(async t => {
   const alfy = alfyTest();
