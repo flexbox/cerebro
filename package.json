@@ -1,0 +1,42 @@
+{
+  "name": "cerebro",
+  "version": "1.0.0",
+  "description": "Blazing fast search for movies that you love",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flexbox/cerebro.git"
+  },
+  "author": "David Leuliette",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/flexbox/cerebro/issues"
+  },
+  "homepage": "https://github.com/flexbox/cerebro#readme",
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "husky": "^1.1.2",
+    "parcel-bundler": "^1.10.3",
+    "prettier": "1.14.3",
+    "pretty-quick": "^1.8.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "components": "^0.1.0",
+    "dotenv": "^6.1.0",
+    "react": ">= 16.3.0",
+    "react-dom": ">= 16.3.0",
+    "styled-components": "^4.0.3"
+  }
+}
