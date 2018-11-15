@@ -1,4 +1,4 @@
-# Cerebro &middot; [![Build Status](http://img.shields.io/travis/flexbox/cerebro.svg?style=flat-square)](https://travis-ci.org/flexbox/cerebro)
+# Cerebro
 
 > Blazing fast search for movies that you love
 
