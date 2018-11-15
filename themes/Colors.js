@@ -12,6 +12,7 @@ const colors = {
 export const theme = {
   primaryColor: colors.blue,
   secondaryColor: colors.green,
+  ternaryColor: colors.pink,
   textColor: colors.grayLight,
   borderColor: colors.gray,
   bgColor: colors.grayDark
