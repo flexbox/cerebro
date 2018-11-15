@@ -4,14 +4,14 @@
 
 1. Last version of babel (7.X)
 1. Class Properties of babel (writing states of React components is much simpler)
-1. Load data from jsonplaceholder
+1. Load data from TMDB
 1. Handle loading and error states nicely
-1. Use parcel instead of webpack
+1. Use `parcel` instead of `webpack`
 
 ## Getting started
 
+    cp .env.sample .env
     yarn dev
-    yarn build
 
 ## Author
 
