@@ -26,7 +26,9 @@ const Input = styled.input`
   padding-bottom: 0.5rem;
   border: 0;
   margin-left: 0.5rem;
-  color: ${props => props.theme.textColor};
+  color: ${props => props.theme.secondaryColor};
+  font-size: 1.25rem;
+  font-weight: bold;
   &:focus {
     outline: 0;
   }
