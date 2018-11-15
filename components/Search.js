@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import axios from "axios";
-import MoovieCard from "./MoovieCard";
+import MovieCard from "./MovieCard";
 import { API_KEY } from "../config";
 
 const Pwd = styled.h1`
@@ -36,7 +36,7 @@ const MoovieList = styled.div`
   justify-items: center;
   align-items: center;
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   @media (min-width: 550px) {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -48,7 +48,12 @@ const MoovieList = styled.div`
   }
 `;
 
-export default class Root extends Component {
+export default class Search extends Component {
+  constructor(props) {
+    super(props);
+    this.inputRef = React.createRef();
+  }
+
   state = {
     loading: false,
     query: "",
@@ -106,11 +111,15 @@ export default class Root extends Component {
             value={query}
             onChange={event => this.setState({ query: event.target.value })}
             required
+            ref={this.inputRef}
+            onMouseEnter={() => {
+              this.inputRef.current.focus();
+            }}
           />
         </Form>
         <MoovieList>
           {data.map((item, key) => (
-            <MoovieCard
+            <MovieCard
               key={item.id}
               title={item.title}
               vote={item.vote_average}

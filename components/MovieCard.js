@@ -3,15 +3,18 @@ import styled from "styled-components";
 
 const Card = styled.div`
   border: 3px solid ${props => props.theme.borderColor};
-  border-radius: 20px;
+  border-radius: 0.5rem;
   background-repeat: no-repeat;
   background-size: cover;
-  width: 250px;
-  height: 250px;
   grid-template-rows: 1fr 1fr;
   display: grid;
   padding: 1rem;
-  margin-bottom: 2rem;
+
+  width: 100%;
+  height: 160px;
+  @media (min-width: 550px) {
+    height: 250px;
+  }
 `;
 
 const CardTitle = styled.h3`
