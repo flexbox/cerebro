@@ -4,6 +4,17 @@ import axios from "axios";
 import MoovieCard from "./MoovieCard";
 import { API_KEY } from "../config";
 
+const Pwd = styled.h1`
+  color: ${props => props.theme.primaryColor};
+  margin-bottom: 0;
+  font-size: 20px;
+`;
+
+const Prompt = styled.div`
+  color: ${props => props.theme.ternaryColor};
+  font-size: 2rem;
+`;
+
 const Form = styled.form`
   display: grid;
   grid-template-columns: 15px 1fr;
@@ -21,20 +32,26 @@ const Input = styled.input`
   }
 `;
 
-const Prompt = styled.div`
-  color: ${props => props.theme.ternaryColor};
-  font-size: 2rem;
-`;
-const Pwd = styled.h1`
-  color: ${props => props.theme.primaryColor};
-  margin-bottom: 0;
-  font-size: 20px;
+const MoovieList = styled.div`
+  justify-items: center;
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  @media (min-width: 550px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 `;
 
 export default class Root extends Component {
   state = {
     loading: false,
-    query: "titanic",
+    query: "",
     data: [],
     errorMessage: ""
   };
@@ -91,17 +108,19 @@ export default class Root extends Component {
             required
           />
         </Form>
-        {data.map((item, key) => (
-          <MoovieCard
-            key={item.id}
-            title={item.title}
-            vote={item.vote_average}
-            date={item.release_date.substr(0, 4)}
-            cover={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${
-              item.poster_path
-            }`}
-          />
-        ))}
+        <MoovieList>
+          {data.map((item, key) => (
+            <MoovieCard
+              key={item.id}
+              title={item.title}
+              vote={item.vote_average}
+              date={item.release_date.substr(0, 4)}
+              cover={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${
+                item.poster_path
+              }`}
+            />
+          ))}
+        </MoovieList>
       </>
     );
   }
