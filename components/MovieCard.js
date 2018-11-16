@@ -1,6 +1,26 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
+export default class MoovieCard extends Component {
+  render() {
+    return (
+      <Card
+        style={{
+          backgroundImage: `linear-gradient(to top, rgba(40, 42, 54, 1), rgba(0, 0, 0, 0.2)), url(${
+            this.props.cover
+          })`
+        }}
+      >
+        <Caption>
+          <div>⭐ {this.props.vote}</div>
+          <Date>🗓 {this.props.date}</Date>
+        </Caption>
+        <CardTitle>{this.props.title}</CardTitle>
+      </Card>
+    );
+  }
+}
+
 const Card = styled.div`
   border: 3px solid ${props => props.theme.borderColor};
   border-radius: 0.5rem;
@@ -34,23 +54,3 @@ const Caption = styled.div`
 const Date = styled.div`
   text-align: right;
 `;
-
-export default class MoovieCard extends Component {
-  render() {
-    return (
-      <Card
-        style={{
-          backgroundImage: `linear-gradient(to top, rgba(40, 42, 54, 1), rgba(0, 0, 0, 0.2)), url(${
-            this.props.cover
-          })`
-        }}
-      >
-        <Caption>
-          <div>⭐ {this.props.vote}</div>
-          <Date>🗓 {this.props.date}</Date>
-        </Caption>
-        <CardTitle>{this.props.title}</CardTitle>
-      </Card>
-    );
-  }
-}

@@ -1,54 +1,9 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import axios from "axios";
-import MovieCard from "./MovieCard";
 import { API_KEY } from "../config";
+import axios from "axios";
 
-const Pwd = styled.h1`
-  color: ${props => props.theme.primaryColor};
-  margin-bottom: 0;
-  font-size: 20px;
-`;
-
-const Prompt = styled.div`
-  color: ${props => props.theme.ternaryColor};
-  font-size: 2rem;
-`;
-
-const Form = styled.form`
-  display: grid;
-  grid-template-columns: 15px 1fr;
-`;
-
-const Input = styled.input`
-  background-color: transparent;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  border: 0;
-  margin-left: 0.5rem;
-  color: ${props => props.theme.secondaryColor};
-  font-size: 1.25rem;
-  font-weight: bold;
-  &:focus {
-    outline: 0;
-  }
-`;
-
-const MoovieList = styled.div`
-  justify-items: center;
-  align-items: center;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  @media (min-width: 550px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  @media (min-width: 1200px) {
-    grid-template-columns: repeat(4, 1fr);
-  }
-`;
+import MovieList from "./MovieList";
 
 export default class Search extends Component {
   constructor(props) {
@@ -119,20 +74,45 @@ export default class Search extends Component {
             }}
           />
         </Form>
-        <MoovieList>
-          {data.map((item, key) => (
-            <MovieCard
-              key={item.id}
-              title={item.title}
-              vote={item.vote_average}
-              date={item.release_date.substr(0, 4)}
-              cover={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${
-                item.poster_path
-              }`}
-            />
-          ))}
-        </MoovieList>
+        <MoviesContainer>
+          <MovieList movieList={data} />
+        </MoviesContainer>
       </>
     );
   }
 }
+
+const MoviesContainer = styled.div`
+  height: 100%;
+  overflow: auto;
+`;
+
+const Pwd = styled.h1`
+  color: ${props => props.theme.primaryColor};
+  margin-bottom: 0;
+  font-size: 20px;
+`;
+
+const Prompt = styled.div`
+  color: ${props => props.theme.ternaryColor};
+  font-size: 2rem;
+`;
+
+const Form = styled.form`
+  display: grid;
+  grid-template-columns: 15px 1fr;
+`;
+
+const Input = styled.input`
+  background-color: transparent;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border: 0;
+  margin-left: 0.5rem;
+  color: ${props => props.theme.secondaryColor};
+  font-size: 1.25rem;
+  font-weight: bold;
+  &:focus {
+    outline: 0;
+  }
+`;

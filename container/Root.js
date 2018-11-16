@@ -1,23 +1,8 @@
 import React, { Component } from "react";
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
-import Search from "../components/Search";
 import { theme } from "../themes/Colors";
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    color: ${props => props.theme.textColor};
-    background-color: ${props => props.theme.bgColor};
-    padding: 1rem;
-  }
-`;
-
-const Container = styled.div`
-  text-transform: capitalize;
-  text-align: right;
-  &:hover {
-    cursor: pointer;
-  }
-`;
+import Search from "../components/Search";
 
 export default class Root extends Component {
   state = {
@@ -41,9 +26,9 @@ export default class Root extends Component {
     return (
       <ThemeProvider theme={this.state.theme}>
         <>
-          <Container onClick={this._handleThemeChange}>
+          <Header onClick={this._handleThemeChange}>
             {this.state.mode} mode
-          </Container>
+          </Header>
           <GlobalStyle />
           <Search />
         </>
@@ -51,3 +36,19 @@ export default class Root extends Component {
     );
   }
 }
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    color: ${props => props.theme.textColor};
+    background-color: ${props => props.theme.bgColor};
+    padding: 1rem;
+  }
+`;
+
+const Header = styled.header`
+  text-transform: capitalize;
+  text-align: right;
+  &:hover {
+    cursor: pointer;
+  }
+`;
